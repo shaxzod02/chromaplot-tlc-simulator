@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header-section">
+        <h1>Thin Layer Chromatography Simulator</h1>
+    </div>
+
+    <div class="content-section" id="content-section-1">
+
+        <div class="compound-selection-section" id="compound-selection-section">
+
+            <button id="add-compound-btn">Add Compound</button>
+            
+
+        </div>
+
+        <div class="run-simulation-btn-section">
+            <button onclick="submitForm()" id="run-simulation-btn">Run Simulation</button>
+            
+            <button onclick="randomizeForm()" id="randomize-simulation-btn">Randomize Simulation</button>
+        </div>
+
+        <div class="graph-visualization">
+
+        </div>
+
+    </div>
+
+    <script>
+        let count = 0
+        
+        RunSimulationBtn = document.getElementById("run-simulation-btn")
+        RandomizeSimulationBtn = document.getElementById("randomize-simulation-btn")
+
+        RunSimulationBtn.setAttribute("disabled", true)
+        RandomizeSimulationBtn.setAttribute("disabled", true)
+
+        let AddCompoundBtn = document.getElementById("add-compound-btn")
+        
+        AddCompoundBtn.addEventListener("click", function() {
+            count += 1
+
+            if (count >= 5) {
+                AddCompoundBtn.setAttribute("disabled", true)
+            }
+        
+                
+
+            RunSimulationBtn.removeAttribute("disabled")
+            RandomizeSimulationBtn.removeAttribute("disabled")
+
+            let NewCompoundContainer = document.createElement("div")
+            NewCompoundContainer.className = "compound-container"
+            
+            let NewCompoundContainerForm = document.createElement("form")
+            NewCompoundContainerForm.id = "compounds-form"
+            NewCompoundContainerForm.action = "/simulate"
+            NewCompoundContainerForm.method = "post"
+
+            
+            let NewCompoundNameEntry =  document.createElement("input")
+            NewCompoundNameEntry.className = "compound-name-entry"
+            NewCompoundNameEntry.placeholder = "Description"
+
+            let NewCompoundDataEntry =  document.createElement("input")
+            NewCompoundDataEntry.className = "compound-data-entry"
+            NewCompoundDataEntry.placeholder = "Retention Factor"
+
+            let NewCompoundDeleteBtn = document.createElement("button")
+            NewCompoundDeleteBtn.textContent = "Remove Compound"
+            NewCompoundDeleteBtn.className = "compound-remove-btn"
+
+
+            let CompoundSelectionSection = document.getElementById("compound-selection-section")
+
+            NewCompoundContainer.appendChild(NewCompoundNameEntry)
+            NewCompoundContainer.appendChild(NewCompoundDataEntry)
+            NewCompoundContainer.appendChild(NewCompoundDeleteBtn)
+
+            NewCompoundContainerForm.appendChild(NewCompoundContainer)
+            CompoundSelectionSection.appendChild(NewCompoundContainerForm)
+
+            
+
+            NewCompoundDeleteBtn.addEventListener("click", function() {
+
+                this.parentElement.remove()
+                count -= 1
+                
+                if (count < 1) 
+                {
+
+                
+                RunSimulationBtn.setAttribute("disabled", true)
+                RandomizeSimulationBtn.setAttribute("disabled", true)
+                }          
+                
+                AddCompoundBtn.removeAttribute("disabled")})
+        })
+        function submitForm() {
+            document.getElementById("compounds-form").submit()
+        }
+        
+    </script>
+
+</body>
+</html> -->
