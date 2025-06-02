@@ -6,13 +6,3 @@ env/
 __pycache__/
 *.py[cod]
 
-class
-static
-templates
-user_plots
-main.py
-plots.py
-render.yaml
-requiremnts.txt
-LICENSE
-README.md
